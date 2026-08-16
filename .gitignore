@@ -1,0 +1,16 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
+
+# SolidWorks temp/lock files (if you add CAD later)
+~$*.sldprt
+~$*.sldasm
+~$*.slddrw
+
+# Arduino build artifacts (if you add firmware later)
+build/
+*.hex
