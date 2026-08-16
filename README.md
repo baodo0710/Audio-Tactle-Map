@@ -1,8 +1,8 @@
 <div align="center">
 
-![FinalMap](docs/images/finalmap.png)\
-
 # Audio-Tactile Map for the Gannett Art Gallery
+
+![FinalMap](images/finalmap.png)\
 
 ### A modular, 3D-printed assistive device that lets visually impaired visitors explore art galleries through touch and spatial audio.
 
@@ -28,7 +28,7 @@
 
 <div align="center">
 
-![ProtoMap](docs/images/finalmap.png)\
+![ProtoMap](images/originalproto.png)\
 **Original Prototype**
 
 </div>
@@ -78,8 +78,8 @@ A **three-layer modular stack** — each layer splits into 4 quadrants to fit st
 
 <div align="center">
 
-![ExplodedView](docs/images/explodedview.png)\
-**Original Prototype**
+![ExplodedView](images/explodedview.png)\
+**Exploded View of the CAD model**
 
 </div>
 
@@ -95,15 +95,14 @@ A **three-layer modular stack** — each layer splits into 4 quadrants to fit st
 
 <div align="center">
 
-![Top](docs/images/topplate.png)\
+![Top](images/topplate.png)\
 **Top Plate**\
-![Mid](docs/images/middleplate.png)\
+![Mid](images/middleplate.png)\
 **Middle Plate**\
-![Bottom](docs/images/bottomplate.png)\
-**Bottom Plate**\
+![Bottom](images/bottomplate.png)\
+**Bottom Plate**
 
 </div>
----
 
 ## Engineering Highlights
 
@@ -127,9 +126,9 @@ Destructive testing on an **Instron 33R4206** confirmed:
 
 <div align="center">
 
-![AnsysSafety](docs/images/ansyssafety.png)\
+![AnsysSafety](images/ansyssafety.png)\
 **Ansys Factor of Safety**\
-![Ansysvonmises](docs/images/ansysvonmisses.png)\
+![Ansysvonmises](images/ansysvonmisses.png)\
 **Von Mises Stress**\
 
 </div>
@@ -145,7 +144,7 @@ All 32 buttons wire directly to Arduino digital pins in `INPUT_PULLUP` mode. A c
 
 <div align="center">
 
-![ElectricalWiring](docs/images/electrical.png)\
+![ElectricalWiring](images/electrical.png)\
 **Setup of the electrical system**\
 
 
