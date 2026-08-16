@@ -2,7 +2,7 @@
 
 # Audio-Tactile Map for the Gannett Art Gallery
 
-![FinalMap](images/finalmap.png)\
+![FinalMap](images/finalmap.png)
 
 ### A modular, 3D-printed assistive device that lets visually impaired visitors explore art galleries through touch and spatial audio.
 
