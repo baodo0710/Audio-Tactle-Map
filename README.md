@@ -128,7 +128,7 @@ Destructive testing on an **Instron 33R4206** confirmed:
 
 ![AnsysSafety](images/ansyssafety.png)\
 **Ansys Factor of Safety**\
-![Ansysvonmises](images/ansysvonmisses.png)\
+![Ansysvonmises](images/ansysvonmises.png)\
 **Von Mises Stress**\
 
 </div>
