@@ -4,7 +4,7 @@
 
 ![FinalMap](images/finalmap.png)
 
-### A modular, 3D-printed assistive device that lets visually impaired visitors explore art galleries through touch and spatial audio.
+### A Modular, Haptic-First Assistive Interface for Spatial Audio Navigation 
 
 [![Deployed](https://img.shields.io/badge/🎨%20Deployed-Gannett%20Gallery-success)](#)
 [![Tested](https://img.shields.io/badge/♿%20User%20Tested-CABVI-blue)](#)
@@ -19,17 +19,18 @@
 
 | | |
 |:---|:---|
-| **What it does** | 32 tactile Braille buttons trigger location-aware audio descriptions of gallery artworks |
-| **Who it's for** | Blind and visually impaired museum visitors |
-| **Where it's deployed** | [Gannett Art Gallery](https://gannettgallery.org), SUNY Polytechnic Institute |
-| **Validated by** | Central Association for Blind and Visually Impaired (CABVI) |
-| **Built with** | Arduino MEGA, 3D-printed PLA, TMRpcm audio engine |
-| **Cost to build** | ~$170 USD |
+| **System Function** | 32 tactile Braille buttons trigger location-aware audio descriptions of gallery artworks via embedded spatial mapping |
+| **Target Population** | Blind and visually impaired museum visitors |
+| **Deployment Site** | [Gannett Art Gallery](https://gannettgallery.org), SUNY Polytechnic Institute |
+| **Validation Partner** | Central Association for Blind and Visually Impaired (CABVI) — user-centered design consultation and formative evaluation |
+| **Embedded Platform** | Arduino MEGA 2560, TMRpcm audio engine, SPI SD storage |
+| **Manufacturing** | Fused Deposition Modeling (FDM) 3D printing in PLA, modular quadrant architecture |
+| **Unit Cost** | ~$170 USD |
 
 <div align="center">
 
 ![ProtoMap](images/originalproto.png)\
-**Original Prototype**
+**Original Prototype — Proof-of-concept tactile interface**
 
 </div>
 
@@ -50,66 +51,66 @@
 
 ---
 
-## Why This Exists
+## Motivation and Design Rationale
 
-Museums are visual by default. Existing accessibility tools often:
-- **Require a smartphone** — creating cost and usability barriers  
-- **Flood users with audio** — disrupting spatial memory formation  
-- **Offer no tactile reference** — making cognitive mapping impossible  
+Museums are inherently visual institutions. Existing accessibility interventions frequently introduce secondary barriers:
+- **Smartphone dependency** — creates cost and digital-literacy barriers for populations with limited access to assistive technology infrastructure
+- **Audio-overload interfaces** — disrupt spatial memory formation and cognitive mapping through unstructured, non-spatial audio streams
+- **Absence of tactile reference frames** — prevent visitors from constructing a coherent mental model of the gallery topology, a prerequisite for independent navigation
 
-The ATM is a **standalone, haptic-first** device. Visitors feel the gallery layout in Braille, press a button, and hear a description — no apps, no connectivity, no friction.
+The Audio-Tactile Map (ATM) is a **standalone, haptic-first assistive device** grounded in the principles of universal design and spatial cognition. Visitors physically explore the gallery layout through embossed Braille topography, press a location-correspondent button, and receive a pre-recorded audio description — eliminating dependencies on external devices, network connectivity, or sighted assistance.
 
-> *Developed in continuous consultation with CABVI to ensure real-world usability.*
+> *Developed through iterative design cycles in continuous consultation with CABVI to ensure ecological validity and real-world usability for the target population.*
 
 ---
 
-## Real-World Impact
+## Empirical Validation and Real-World Impact
 
 > *"The modular Braille blocks and clear audio quality make independent navigation possible. Moving the speaker to the front and adding adjustable audio speed would make this even stronger."*  
-> **— CABVI Evaluation Feedback, April 25, 2025**
+> **— CABVI Formative Evaluation Feedback, April 25, 2025**
 
-**Deployed and tested live** at the Gannett Gallery alongside a refreshable Braille tablet companion. The device is currently in active use for rotating exhibitions.
+The device was **deployed and evaluated live** at the Gannett Art Gallery alongside a refreshable Braille tablet companion system. CABVI evaluators assessed tactile discriminability, audio intelligibility, and cognitive mapping efficacy. The system is currently in active use for rotating exhibitions, with iterative improvements guided by ongoing user feedback.
 
 ---
 
-## Architecture
+## System Architecture
 
-A **three-layer modular stack** — each layer splits into 4 quadrants to fit standard 220×220 mm FDM printers.
+A **three-layer modular stack** — each layer subdivides into four quadrants to conform to standard 220 × 220 mm FDM build volumes, enabling distributed manufacturing without specialized equipment.
 
 <div align="center">
 
 ![ExplodedView](images/explodedview.png)\
-**Exploded View of the CAD model**
+**Exploded view of the three-layer modular CAD assembly**
 
 </div>
 
-| Layer | Function | Key Features |
-|-------|----------|--------------|
-| **Top** | Tactile interface | Gallery contour map, 32 removable Braille blocks, interchangeable title plate |
-| **Middle** | Button support | 32 momentary switches, blanking plates for unused slots, M3 alignment tabs |
-| **Bottom** | Electronics chassis | Arduino MEGA, SD reader, LM386 amp, speaker/headphone jack, battery, structural pillars |
+| Layer | Functional Role | Key Design Features |
+|-------|-----------------|---------------------|
+| **Top** | Haptic interface | Gallery contour map, 32 removable Braille blocks with standardized pin geometry, interchangeable exhibition title plate |
+| **Middle** | Actuation support | 32 momentary tactile switches, blanking plates for unused slots, M3 alignment tabs for layer registration |
+| **Bottom** | Electronics chassis | Arduino MEGA 2560, SPI SD card reader, LM386 audio amplifier, speaker / 3.5 mm TRS headphone jack, battery compartment, structural load-bearing pillars |
 
-**Materials:** PLA (structural), steel M3 fasteners  
-**Dimensions:** 12" × 12" × 3.5"  
-**Audio format:** 8-bit PCM, 16 kHz mono `.wav`
+**Materials:** PLA (structural), steel M3 socket-head fasteners  
+**Overall Dimensions:** 12" × 12" × 3.5" (305 mm × 305 mm × 89 mm)  
+**Audio Encoding:** 8-bit PCM, 16 kHz mono, `.wav` container
 
 <div align="center">
 
 ![Top](images/topplate.png)\
-**Top Plate**\
+**Top Plate — Tactile gallery topology**\
 ![Mid](images/middleplate.png)\
-**Middle Plate**\
+**Middle Plate — Switch mounting and alignment**\
 ![Bottom](images/bottomplate.png)\
-**Bottom Plate**
+**Bottom Plate — Electronics integration and structural load path**
 
 </div>
 
-## Engineering Highlights
+## Engineering Analysis and Validation
 
 <details>
-<summary><b>🛠️ Mechanical — Safety Factor 15</b></summary>
+<summary><b>🛠️ Mechanical — Structural Integrity and Safety Factor 15</b></summary>
 
-The bottom load-bearing plate was analyzed in **ANSYS APDL & Workbench** under full distributed load:
+The bottom load-bearing plate was analyzed under full distributed operational load using **ANSYS APDL and Workbench** finite-element methods:
 
 | Metric | Value |
 |--------|-------|
@@ -118,34 +119,34 @@ The bottom load-bearing plate was analyzed in **ANSYS APDL & Workbench** under f
 | Von Mises stress | 0.589 psi |
 | **Safety factor** | **15** |
 
-Destructive testing on an **Instron 33R4206** confirmed:
-- **Tensile:** >9,900 lbf before failure
-- **Compressive:** Deformation initiated at **2,500 lbf**
+Destructive mechanical validation was performed on an **Instron 33R4206** universal testing machine:
+- **Tensile loading:** Failure occurred at >9,900 lbf
+- **Compressive loading:** Plastic deformation initiated at **2,500 lbf**
 
-> The ATM withstands **>1,000×** its operational load.
+> The ATM structural chassis withstands **>1,000×** its anticipated operational load envelope, ensuring durability under public-gallery use conditions including incidental impact and concentrated loads.
 
 <div align="center">
 
 ![AnsysSafety](images/ansyssafety.png)\
-**Ansys Factor of Safety**\
+**ANSYS Factor of Safety Distribution**\
 ![Ansysvonmises](images/ansysvonmises.png)\
-**Von Mises Stress**\
+**Von Mises Stress Contour Plot**\
 
 </div>
 
 </details>
 
 <details>
-<summary><b>⚡ Electrical — 32-Button Direct-Mapped Input</b></summary>
+<summary><b>⚡ Electrical — 32-Channel Direct-Mapped Input Architecture</b></summary>
 
-All 32 buttons wire directly to Arduino digital pins in `INPUT_PULLUP` mode. A centralized solderable breadboard acts as a ground bus — eliminating 32 individual ground wires and cutting assembly time by ~40%.
+All 32 buttons are wired directly to Arduino digital pins in `INPUT_PULLUP` configuration. A centralized solderable breadboard serves as a shared ground bus — eliminating 32 individual ground-return wires and reducing assembly time by approximately 40% while improving wiring reliability.
 
-**Audio chain:** Arduino PWM (D11) → 3-position toggle → LM386 amplifier → speaker or 3.5mm TRS jack.
+**Audio signal chain:** Arduino PWM (Digital Pin 11) → 3-position mode toggle → LM386 low-voltage audio amplifier → 8 Ω speaker or 3.5 mm TRS stereo headphone jack.
 
 <div align="center">
 
 ![ElectricalWiring](images/electrical.png)\
-**Setup of the electrical system**\
+**Electrical system wiring and component layout**\
 
 
 </div>
@@ -153,7 +154,7 @@ All 32 buttons wire directly to Arduino digital pins in `INPUT_PULLUP` mode. A c
 </details>
 
 <details>
-<summary><b>💾 Firmware — TMRpcm Audio Engine</b></summary>
+<summary><b>💾 Firmware — TMRpcm Embedded Audio Engine</b></summary>
 
 ```cpp
 #include "SD.h"
@@ -178,16 +179,16 @@ void loop() {
 }
 ```
 
-- **Non-blocking:** `pause()` prevents audio overlap
-- **Low latency:** <50 ms from press to playback
-- **Hot-swappable:** Update audio by swapping the SD card
+- **Non-blocking playback:** `pause()` prevents audio sample overlap and channel contention
+- **Low-latency response:** <50 ms from tactile actuation to audio onset
+- **Hot-swappable content:** Audio descriptions updated by exchanging the SD card — no firmware reflashing required
 
 </details>
 
 <details>
-<summary><b>🎵 Audio Pipeline</b></summary>
+<summary><b>🎵 Audio Pipeline — PCM Encoding and Content Management</b></summary>
 
-All tracks converted to TMRpcm-compatible PCM:
+All audio tracks are batch-converted to TMRpcm-compatible PCM format:
 
 ```bash
 ffmpeg -i input.mp3 -ar 16000 -ac 1 -c:a pcm_u8 output.wav
@@ -200,7 +201,7 @@ ffmpeg -i input.mp3 -ar 16000 -ac 1 -c:a pcm_u8 output.wav
 | Channels | Mono |
 | Format | `.wav` |
 
-Files are named `a.wav` through `ff.wav`, mapped clockwise to Braille block positions.
+Files are named `a.wav` through `ff.wav`, mapped clockwise to Braille block positions on the gallery topology.
 
 </details>
 
@@ -224,51 +225,34 @@ Files are named `a.wav` through `ff.wav`, mapped clockwise to Braille block posi
 | Hardware | M3×8 mm Socket Head Bolts | 50 | $5 |
 | | | **Total** | **~$170** |
 
-### Repository Structure
+### Assembly Procedure
 
-```
-├── firmware/
-│   └── atm_firmware.ino          # Arduino sketch
-├── cad/
-│   ├── top_layer/                # SolidWorks parts + STL
-│   ├── middle_layer/
-│   └── bottom_layer/
-├── audio/
-│   └── convert.sh                # ffmpeg batch script
-├── docs/
-│   ├── TECHNICAL.md              # Full capstone report content
-│   └── images/                   # Photo assets (TODO)
-└── README.md                     # You are here
-```
-
-### Assembly (TL;DR)
-
-1. **Print** 12 quadrant parts (4 per layer) on an Ender 3 S1 Pro or equivalent
-2. **Wire** buttons to a shared ground bus, route signals to Arduino D2–D45
-3. **Connect** SD reader (SPI), LM386 amp (D11), and power switch
-4. **Assemble** layers with M3 bolts, insert Braille blocks, load SD card
-5. **Test** each button for <1 lb actuation force and clean audio playback
+1. **Fabricate** 12 quadrant components (4 per layer) via FDM on an Ender 3 S1 Pro or equivalent 220 × 220 mm build-plate printer
+2. **Wire** tactile buttons to the shared ground bus, routing individual signal lines to Arduino digital pins D2–D45
+3. **Integrate** SPI SD card reader, LM386 amplifier (D11 PWM output), and power-management switch
+4. **Assemble** layers using M3 fasteners, insert Braille blocks into standardized receptacles, load SD card with exhibition audio
+5. **Validate** each button for <1 lbf actuation force and clean, non-distorted audio playback across all 32 channels
 
 ---
 
 
-## Team
+## Team and Contributions
 
 | | |
 |:---|:---|
-| **Bao Do** | Electrical architecture, firmware, wiring, integration, testing |
-| **Edric Pham** | Top & middle layer CAD, Braille block design, drafting |
-| **Cong Du Phan** | Bottom layer CAD, ANSYS FEA, structural validation |
-| **Advisor** | Dr. D.K. Jones |
-| **Partner** | [CABVI](https://www.cabvi.org) — User testing & design consultation |
+| **Bao Do** | Electrical architecture, embedded firmware development, wiring integration, system testing, and CABVI liaison |
+| **Edric Pham** | Top and middle layer CAD modeling, Braille block geometry design, technical drafting |
+| **Cong Du Phan** | Bottom layer structural CAD, ANSYS finite-element analysis, mechanical validation and destructive testing |
+| **Faculty Advisor** | Dr. D.K. Jones |
+| **Community Partner** | [CABVI](https://www.cabvi.org) — User-centered design consultation, formative evaluation, and accessibility expertise |
 
 ---
 
 ## Acknowledgments
 
-- **SUNY Academic Innovation Grants Program** — Funding
-- **SUNY Poly CGAM** — 3D printing resources
-- **CCAVA Initiative** — Project framework and accessibility mission
+- **SUNY Academic Innovation Grants Program** — Project funding
+- **SUNY Poly CGAM (Center for Global Advanced Manufacturing)** — Additive manufacturing resources and fabrication support
+- **CCAVA Initiative** — Project framework and institutional commitment to accessibility in cultural heritage
 
 ---
 
@@ -276,6 +260,6 @@ Files are named `a.wav` through `ff.wav`, mapped clockwise to Braille block posi
 
 **[⬆ Back to Top](#audio-tactile-map-for-the-gannett-art-gallery)**
 
-*Built for accessibility. Open to collaboration.*
+*Designed for accessibility. Open to collaboration and replication.*
 
 </div>
